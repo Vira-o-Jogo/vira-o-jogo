@@ -272,6 +272,148 @@
       line-height: 1.6;
     }
 
+    /* PRODUTO */
+    .product-section {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .product-box {
+      background: #1a1a1a;
+      border: 2px solid #00d46e;
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 0 80px rgba(0, 212, 110, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-box::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(0,212,110,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .product-badge {
+      background: linear-gradient(135deg, #ff6b00, #ff9500);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-box h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .product-box h2 span { color: #00d46e; }
+
+    .product-desc {
+      color: #888;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .product-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .product-include-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .product-include-item .check {
+      width: 24px;
+      height: 24px;
+      background: #00d46e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #000;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .price-container {
+      margin-bottom: 28px;
+    }
+
+    .price-old-tag {
+      color: #555;
+      text-decoration: line-through;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .price-main {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #00d46e;
+      line-height: 1;
+    }
+
+    .price-main sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+    }
+
+    .price-hint {
+      color: #555;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .buy-btn {
+      display: block;
+      background: linear-gradient(135deg, #00d46e, #00a855);
+      color: #000;
+      font-weight: 800;
+      font-size: 1.2rem;
+      padding: 20px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(0, 212, 110, 0.5);
+      margin-bottom: 16px;
+    }
+
+    .buy-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 60px rgba(0, 212, 110, 0.7);
+    }
+
+    .buy-guarantee {
+      color: #555;
+      font-size: 0.82rem;
+    }
+
+    .buy-guarantee span { color: #00d46e; }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -294,7 +436,7 @@
     <div class="badge">Educação Financeira Gratuita</div>
     <h1>É hora de <span>Virar o Jogo</span><br>com o seu dinheiro</h1>
     <p>Dicas simples e diretas para quem quer tomar o controle das próprias finanças — sem complicação, sem enrolação.</p>
-    <a href="#dicas" class="hero-btn">Ver as Dicas Gratuitas</a>
+    <a href="#kit" class="hero-btn">Quero o Kit Completo por R$9,90</a>
   </section>
 
   <!-- DICAS -->
@@ -340,6 +482,54 @@
   <section class="quote-section">
     <blockquote>"Não é quanto você ganha que importa — é quanto você guarda."</blockquote>
     <cite>— Princípio básico de educação financeira</cite>
+  </section>
+
+  <!-- PRODUTO -->
+  <section class="product-section" id="kit">
+    <div class="product-box">
+      <div class="product-badge">Oferta especial de lançamento</div>
+      <h2>Kit Completo <span>Vira o Jogo</span></h2>
+      <p class="product-desc">Tudo que você precisa para dar o primeiro passo rumo à organização financeira — em um único kit, por um preço que não vai pesar no bolso.</p>
+
+      <div class="product-includes">
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>E-book completo de educação financeira em linguagem simples</span>
+        </div>
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>Planilha de Controle de Gastos Mensais</span>
+        </div>
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>Planilha de Planejamento de Metas Financeiras</span>
+        </div>
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>Planilha de Controle e Eliminação de Dívidas</span>
+        </div>
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>Tutorial completo de como preencher cada planilha</span>
+        </div>
+        <div class="product-include-item">
+          <div class="check">✓</div>
+          <span>Concorra a uma sessão gratuita de consultoria toda semana</span>
+        </div>
+      </div>
+
+      <div class="price-container">
+        <div class="price-old-tag">De R$ 49,90</div>
+        <div class="price-main"><sup>R$</sup> 9,90</div>
+        <div class="price-hint">Pagamento único — acesso imediato após a compra</div>
+      </div>
+
+      <a href="https://go.hotmart.com/M106182520J" target="_blank" class="buy-btn">
+        Quero o Kit Agora por R$9,90
+      </a>
+
+      <p class="buy-guarantee">Pagamento 100% seguro via <span>Pix ou Cartão</span> — processado pelo Hotmart</p>
+    </div>
   </section>
 
   <!-- PIX -->
