@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vira o Jogo — Educação Financeira Para Todos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 212, 110, 0.15) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, transparent 70%);
+      bottom: -50px;
+      left: -50px;
+      border-radius: 50%;
+    }
+
+    .badge {
+      background: rgba(0, 212, 110, 0.15);
+      border: 1px solid rgba(0, 212, 110, 0.4);
+      color: #00d46e;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      z-index: 1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: #00d46e;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #aaaaaa;
+      max-width: 600px;
+      line-height: 1.7;
+      z-index: 1;
+      margin-bottom: 40px;
+    }
+
+    .hero-btn {
+      background: linear-gradient(135deg, #00d46e, #00a855);
+      color: #000;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(0, 212, 110, 0.4);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 50px rgba(0, 212, 110, 0.6);
+    }
+
+    /* DICAS */
+    .tips {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title span { color: #00d46e; }
+
+    .section-sub {
+      text-align: center;
+      color: #888;
+      margin-bottom: 50px;
+      font-size: 1rem;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .tip-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 32px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .tip-card:hover {
+      border-color: #00d46e;
+      transform: translateY(-4px);
+    }
+
+    .tip-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .tip-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .tip-card p {
+      color: #888;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* FRASES MOTIVACIONAIS */
+    .quote-section {
+      background: linear-gradient(135deg, #00d46e, #00a855);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .quote-section blockquote {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #000;
+      max-width: 700px;
+      margin: 0 auto 16px;
+      line-height: 1.4;
+    }
+
+    .quote-section cite {
+      color: rgba(0,0,0,0.6);
+      font-size: 0.9rem;
+    }
+
+    /* PIX / APOIO */
+    .pix-section {
+      padding: 80px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pix-box {
+      background: #1a1a1a;
+      border: 2px solid #00d46e;
+      border-radius: 24px;
+      padding: 48px 32px;
+      box-shadow: 0 0 60px rgba(0, 212, 110, 0.15);
+    }
+
+    .pix-box h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .pix-box p {
+      color: #888;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .pix-key-label {
+      font-size: 0.8rem;
+      color: #00d46e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .pix-key {
+      background: #0f0f0f;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 16px 24px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+
+    .pix-copy-hint {
+      color: #555;
+      font-size: 0.8rem;
+      margin-bottom: 24px;
+    }
+
+    .pix-values {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .pix-value-btn {
+      background: rgba(0, 212, 110, 0.1);
+      border: 1px solid rgba(0, 212, 110, 0.4);
+      color: #00d46e;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .pix-value-btn:hover {
+      background: rgba(0, 212, 110, 0.25);
+    }
+
+    .pix-note {
+      color: #555;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #444;
+      font-size: 0.85rem;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    footer span { color: #00d46e; }
+
+    /* SCROLL SUAVE */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Educação Financeira Gratuita</div>
+    <h1>É hora de <span>Virar o Jogo</span><br>com o seu dinheiro</h1>
+    <p>Dicas simples e diretas para quem quer tomar o controle das próprias finanças — sem complicação, sem enrolação.</p>
+    <a href="#dicas" class="hero-btn">Ver as Dicas Gratuitas</a>
+  </section>
+
+  <!-- DICAS -->
+  <section class="tips" id="dicas">
+    <h2 class="section-title">Dicas que <span>mudam sua vida</span></h2>
+    <p class="section-sub">Conteúdo prático para quem está começando agora</p>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">💰</div>
+        <h3>Anote tudo que você gasta</h3>
+        <p>O primeiro passo para mudar sua relação com o dinheiro é saber para onde ele vai. Use um caderno ou aplicativo gratuito e registre cada gasto por 30 dias.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎯</div>
+        <h3>A regra dos 50-30-20</h3>
+        <p>Divida seu salário: 50% para necessidades (aluguel, comida), 30% para desejos e 20% para poupar ou pagar dívidas. Simples assim.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚫</div>
+        <h3>Dívida no cartão é veneno</h3>
+        <p>O rotativo do cartão de crédito cobra mais de 400% ao ano. Se não consegue pagar o total, peça um parcelamento — mas nunca deixe virar rotativo.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📈</div>
+        <h3>Pouco todo mês vale mais que muito de vez em quando</h3>
+        <p>Guardar R$50 por mês durante 10 anos rende muito mais do que você imagina com os juros compostos trabalhando a seu favor.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🛡️</div>
+        <h3>Monte sua reserva de emergência</h3>
+        <p>Antes de qualquer investimento, guarde o equivalente a 3 meses dos seus gastos. Isso é seu escudo contra imprevistos.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🧠</div>
+        <h3>Aprenda antes de investir</h3>
+        <p>Não coloque dinheiro em nada que não entende. Comece pela poupança ou Tesouro Direto enquanto estuda outras opções.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRASE -->
+  <section class="quote-section">
+    <blockquote>"Não é quanto você ganha que importa — é quanto você guarda."</blockquote>
+    <cite>— Princípio básico de educação financeira</cite>
+  </section>
+
+  <!-- PIX -->
+  <section class="pix-section" id="apoio">
+    <div class="pix-box">
+      <h2>Este conteúdo te ajudou?</h2>
+      <p>O <strong>Vira o Jogo</strong> é um projeto independente criado para levar educação financeira gratuita para quem mais precisa. Se este conteúdo fez diferença pra você, considere apoiar com qualquer valor — até R$1 já ajuda a manter esse projeto vivo.</p>
+
+      <div class="pix-key-label">Chave Pix (Telefone)</div>
+      <div class="pix-key">12 997122210</div>
+      <div class="pix-copy-hint">Copie e cole no seu aplicativo de banco</div>
+
+      <div class="pix-values">
+        <div class="pix-value-btn">R$ 2</div>
+        <div class="pix-value-btn">R$ 5</div>
+        <div class="pix-value-btn">R$ 10</div>
+        <div class="pix-value-btn">R$ 20</div>
+      </div>
+
+      <p class="pix-note">Qualquer valor é bem-vindo e 100% voluntário. Obrigado por acreditar neste projeto!</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito com propósito por <span>Vira o Jogo</span> &mdash; Educação financeira para todos</p>
+  </footer>
+
+</body>
+</html>
